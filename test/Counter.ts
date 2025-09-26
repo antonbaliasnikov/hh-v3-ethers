@@ -7,9 +7,10 @@ describe("Counter", function () {
 
   it("The sum of the Increment events should match the current value", async function () {
     const counter = await ethers.deployContract("Counter");
-    const deploymentBlockNumber = await ethers.provider.getBlockNumber();
 
     await counter.waitForDeployment();
+
+    const deploymentBlockNumber = await ethers.provider.getBlockNumber();
 
     // run a series of increments
     for (let i = 1; i <= 10; i++) {
